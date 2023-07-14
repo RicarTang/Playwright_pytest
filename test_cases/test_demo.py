@@ -3,9 +3,7 @@ import pytest
 from playwright.sync_api import Page, expect
 
 
-@pytest.fixture(scope="session")
-def browser_context_args(browser_context_args, playwright):
-    return {**playwright.devices["Galaxy S9+"]}
+
 
 
 def test_create_wallet(page: Page) -> None:
@@ -31,7 +29,6 @@ def test_create_wallet(page: Page) -> None:
 
 def test_restore_wallet(page:Page):
     page.goto("http://127.0.0.1:7665/")
-    page.goto("http://127.0.0.1:7665/#/wallet/mnemonic?__nav_id__=2")
     page.get_by_role("button", name="恢复钱包").click()
     page.get_by_placeholder("输入助记词，各单词间以空格分隔").click()
     page.get_by_placeholder("输入助记词，各单词间以空格分隔").fill("front cushion afford loud hungry upset rich table delay steel margin lucky")

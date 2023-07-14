@@ -5,8 +5,13 @@ name = "pip_conf_index_global"
 
 [packages]
 pytest-playwright = "*"
+loguru = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.10"
+
+[scripts]
+test = "python -m pytest"
