@@ -11,9 +11,12 @@ from utils.load_file import LoadFile
 @allure.feature("创建钱包集")
 class TestCreateWallet:
     """创建钱包测试用例集"""
-    # def setup_class(self,page:Page):
-    #     """类前置"""
-    #     self.page = page
+    def setup_class(self):
+        """类前置"""
+        pass
+
+    def setup_method(self):
+        pass
 
     @pytest.mark.create_wallet
     @pytest.mark.parametrize(
@@ -33,25 +36,18 @@ class TestCreateWallet:
         create_wallet_page.input_wallet_pwd(data["data"]["wallet_pwd"])
         create_wallet_page.input_wallet_confirm_pwd(data["data"]["wallet_confirm_pwd"])
         create_wallet_page.input_wallet_pwd_hint(data["data"]["wallet_pwd_hint"])
-        create_wallet_page.click_user_agreement_checkbox
+        create_wallet_page.click_user_agreement_checkbox()
         # 断言提交按钮is_disabled
-        expect(create_wallet_page.create_wallet_submit_button).to_be_disabled()
-        # assert (
-
-        #     self.locator(self.create_wallet_submit).is_enabled()
-        #     is data["expect"]["is_enabled"]
-        # )
-        # self.click_create_wallet_submit_button()
-        # if data["expect"]["is_enabled"] is True:
-        #     if data["title"] == "成功创建钱包,跳过备份":
-        #         # 跳过备份流程
-        #         self.click_skip_backup_mnemonic_button()
-        #         self.click_backup_abort_button()
-        #         assert True  # 断言主页元素
-        #     else:
-        #         # 备份流程
-        #         self.click_backup_mnemonic_button()
-        #         self.click_confirm_backedup_button()
-        #         self.click_confirm_auto_complete_mnemonic_button()
-        #         self.click_confirm_mnemonic_finish_button()
-        #         assert True  # 断言主页元素
+        if data["expect"]["is_enabled"] is True:
+            expect(create_wallet_page.create_wallet_submit_button).to_be_enabled()
+            create_wallet_page.click_create_wallet_submit_button()
+            if data["title"] == "成功创建钱包,跳过备份":
+                # 跳过备份流程
+                pass
+                assert True  # 断言主页元素
+            else:
+                # 备份流程
+                pass
+                assert True  # 断言主页元素
+        else:
+            expect(create_wallet_page.create_wallet_submit_button).to_be_disabled()
