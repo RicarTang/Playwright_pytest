@@ -5,7 +5,8 @@ name = "pip_conf_index_global"
 
 [packages]
 pytest-playwright = "*"
-loguru = "*"
+allure-pytest = "*"
+pyyaml = "*"
 
 [dev-packages]
 black = "*"
@@ -14,4 +15,6 @@ black = "*"
 python_version = "3.10"
 
 [scripts]
-test = "python -m pytest"
+debug = "python -m pytest --headed"
+test = "python main.py"
+

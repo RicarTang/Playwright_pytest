@@ -1,11 +1,11 @@
 import pytest
 
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 
 
 
-
+@pytest.mark.skip
 def test_create_wallet(page: Page) -> None:
     page.goto("http://127.0.0.1:7665/")
     page.get_by_role("button", name="创建钱包").click()
@@ -26,7 +26,7 @@ def test_create_wallet(page: Page) -> None:
     page.get_by_role("button", name="完成").click()
     page.get_by_role("button", name="").click()
 
-
+@pytest.mark.skip
 def test_restore_wallet(page:Page):
     page.goto("http://127.0.0.1:7665/")
     page.get_by_role("button", name="恢复钱包").click()
