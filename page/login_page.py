@@ -5,7 +5,6 @@ import allure
 class LoginPage:
     
     def __init__(self,page:Page):
-        self.page = page
         # 创建钱包按钮
         self.create_wallet_button = page.locator("//button[text()='创建钱包']")
         # 恢复钱包按钮
