@@ -5,6 +5,7 @@ from page.common_page import CommonPageMixin
 
 class CreateWalletPage(CommonPageMixin):
     def __init__(self,page: Page):
+        super().__init__(page)
         # 钱包名称input
         self.wallet_name_input = page.locator("//input[@placeholder='输入1~12个字符']")
         # 钱包密码input
@@ -27,7 +28,7 @@ class CreateWalletPage(CommonPageMixin):
     @allure.step("输入钱包名称")
     def input_wallet_name(self,wallet_name:str):
         """输入钱包名称"""
-        self.wallet_name_input.fill(wallet_name)
+        self.wallet_name_input.fill(str(wallet_name))
 
     @allure.step("输入钱包密码")
     def input_wallet_pwd(self,wallet_pwd:str):

@@ -1,0 +1,110 @@
+-
+  title: 助记词为空恢复钱包
+  data:
+    wallet_mnemonic: ""
+    wallet_name: tang
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 助记词不符合规范恢复钱包
+  data:
+    wallet_mnemonic: 随便填的错误助记词
+    wallet_name: tang
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 助记词单词错误恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin luck
+    wallet_name: tang
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 钱包名称为空恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: ""
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 钱包名称13位字符恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: RlIkLF10sBe4W
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 钱包密码为空恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: tang
+    wallet_pwd: ""
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 钱包确认密码为空恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: tang
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: ""
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: False
+-
+  title: 钱包密码为7位字符恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: tang
+    wallet_pwd: 1234567
+    wallet_confirm_pwd: 1234567
+    wallet_pwd_hint: 1234567
+  expect: 
+    is_enabled: False
+-
+  title: 钱包密码为31位字符恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: tang
+    wallet_pwd: GkYuxjAQyZfslLXfSHUwFITNU7axlyg
+    wallet_confirm_pwd: GkYuxjAQyZfslLXfSHUwFITNU7axlyg
+    wallet_pwd_hint: GkYuxjAQyZfslLXfSHUwFITNU7axlyg
+  expect: 
+    is_enabled: False
+-
+  title: 钱包密码与确认密码不一致恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: tang
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 123456789
+    wallet_pwd_hint: 两次密码不一致
+  expect: 
+    is_enabled: False
+-
+  title: 成功恢复钱包
+  data:
+    wallet_mnemonic: front cushion afford loud hungry upset rich table delay steel margin lucky
+    wallet_name: tang
+    wallet_pwd: 12345678
+    wallet_confirm_pwd: 12345678
+    wallet_pwd_hint: 12345678
+  expect: 
+    is_enabled: True

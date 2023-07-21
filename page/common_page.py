@@ -5,7 +5,6 @@ import allure
 class CommonPageMixin:
     """公共元素Mixin"""
     def __init__(self,page: Page) -> None:
-        self.page = page
         # 返回按钮
         self.go_back_button = page.locator("//button[@mode='icon']")
 
