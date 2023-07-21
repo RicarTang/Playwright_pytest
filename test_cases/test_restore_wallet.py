@@ -4,6 +4,8 @@ import pytest
 from playwright.sync_api import Page, expect
 from utils.load_file import LoadFile
 import config
+from page.login.login_page import LoginPage
+from page.restore_wallet.restore_wallet_page import RestoreWalletPage
 
 
 @allure.epic("登录钱包")
@@ -16,7 +18,13 @@ class TestRestoreWallet:
         "data",
         LoadFile(os.path.join(config.TESTCASE_DATA_PATH, "restore_wallet_data.yaml")),
     )
-    def test_restore_wallet_case(self, data, page: Page,login_page,restore_wallet_page):
+    def test_restore_wallet_case(
+        self,
+        data,
+        page: Page,
+        login_page: LoginPage,
+        restore_wallet_page: RestoreWalletPage,
+    ):
         """恢复钱包测试用例"""
         allure.dynamic.title(data["title"])
         page.goto("http://127.0.0.1:6939")

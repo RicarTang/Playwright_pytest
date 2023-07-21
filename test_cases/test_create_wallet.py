@@ -4,6 +4,14 @@ import allure
 from playwright.sync_api import Page, expect
 import config
 from utils.load_file import LoadFile
+from page.login.login_page import LoginPage
+from page.create_wallet import (
+    CreateWalletPage,
+    BackupOrNotWalletPage,
+    BackupMnemonicPage,
+    ConfirmMnemonicPage,
+)
+from page.home.home_page import HomePage
 
 
 @allure.epic("登录钱包")
@@ -20,12 +28,12 @@ class TestCreateWallet:
         self,
         data: dict,
         page: Page,
-        login_page,
-        create_wallet_page,
-        backup_or_not_wallet_page,
-        backup_mnemonic_page,
-        confirm_mnemonic_page,
-        home_page,
+        login_page: LoginPage,
+        create_wallet_page: CreateWalletPage,
+        backup_or_not_wallet_page: BackupOrNotWalletPage,
+        backup_mnemonic_page: BackupMnemonicPage,
+        confirm_mnemonic_page: ConfirmMnemonicPage,
+        home_page: HomePage,
     ):
         """创建钱包测试用例"""
         allure.dynamic.title(data["title"])
