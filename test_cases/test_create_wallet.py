@@ -3,11 +3,11 @@ import pytest
 import allure
 from playwright.sync_api import Page, expect
 import config
-from page.login_page import LoginPage
-from page.create_wallet_page import CreateWalletPage
-from page.backup_or_not_wallet_page import BackupOrNotWalletPage
-from page.backup_mnemonic_page import BackupMnemonicPage
-from page.confirm_mnemonic_page import ConfirmMnemonicPage
+from page.login.login_page import LoginPage
+from page.create_wallet.create_wallet_page import CreateWalletPage
+from page.create_wallet.backup_or_not_wallet_page import BackupOrNotWalletPage
+from page.create_wallet.backup_mnemonic_page import BackupMnemonicPage
+from page.create_wallet.confirm_mnemonic_page import ConfirmMnemonicPage
 from utils.load_file import LoadFile
 
 

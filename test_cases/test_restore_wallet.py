@@ -2,8 +2,8 @@ import os
 import allure
 import pytest
 from playwright.sync_api import Page, expect
-from page.login_page import LoginPage
-from page.restore_wallet_page import RestoreWalletPage
+from page.login.login_page import LoginPage
+from page.restore_wallet.restore_wallet_page import RestoreWalletPage
 from utils.load_file import LoadFile
 import config
 
