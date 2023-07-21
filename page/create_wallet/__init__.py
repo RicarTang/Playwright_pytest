@@ -1,0 +1,4 @@
+from .create_wallet_page import CreateWalletPage
+from .backup_or_not_wallet_page import BackupOrNotWalletPage
+from .backup_mnemonic_page import BackupMnemonicPage
+from .confirm_mnemonic_page import ConfirmMnemonicPage

@@ -2,8 +2,6 @@ import os
 import allure
 import pytest
 from playwright.sync_api import Page, expect
-from page.login.login_page import LoginPage
-from page.restore_wallet.restore_wallet_page import RestoreWalletPage
 from utils.load_file import LoadFile
 import config
 
@@ -18,13 +16,11 @@ class TestRestoreWallet:
         "data",
         LoadFile(os.path.join(config.TESTCASE_DATA_PATH, "restore_wallet_data.yaml")),
     )
-    def test_restore_wallet_case(self, data, page: Page):
+    def test_restore_wallet_case(self, data, page: Page,login_page,restore_wallet_page):
         """恢复钱包测试用例"""
         allure.dynamic.title(data["title"])
         page.goto("http://127.0.0.1:6939")
-        login_page = LoginPage(page)
         login_page.click_restore_wallet_button()
-        restore_wallet_page = RestoreWalletPage(page)
         restore_wallet_page.input_wallet_mnemonic(data["data"]["wallet_mnemonic"])
         restore_wallet_page.input_wallet_name(data["data"]["wallet_name"])
         restore_wallet_page.input_wallet_pwd(data["data"]["wallet_pwd"])
