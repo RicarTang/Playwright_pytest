@@ -1,7 +1,7 @@
 import os
 import pytest
 import allure
-from playwright.sync_api import Page, expect
+from playwright.sync_api import expect
 from utils._playwright import PlayWright
 from config import config
 from utils.load_file import LoadFile

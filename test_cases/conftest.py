@@ -12,6 +12,7 @@ from page.create_wallet import (
 )
 from page.restore_wallet.restore_wallet_page import RestoreWalletPage
 from page.home.home_page import HomePage
+from page.transfer.transfer_page import TransferPage
 
 
 @pytest.fixture
@@ -127,6 +128,18 @@ def home_page(page: Page) -> Generator[HomePage, None, None]:
     home_page = HomePage(page)
     yield home_page
 
+@pytest.fixture
+def transfer_page(page: Page) -> Generator[TransferPage, None, None]:
+    """转账页面模型实例
+
+    Args:
+        page (Page): _description_
+
+    Yields:
+        Generator[TransferPage, None, None]: _description_
+    """
+    transfer_page = TransferPage(page)
+    yield transfer_page
 
 @pytest.fixture
 def restore_wallet(
@@ -134,7 +147,13 @@ def restore_wallet(
     login_page: LoginPage,
     restore_wallet_page: RestoreWalletPage,
 ):
-    """恢复钱包"""
+    """前置，恢复钱包
+
+    Args:
+        cpage (PlayWright): _description_
+        login_page (LoginPage): _description_
+        restore_wallet_page (RestoreWalletPage): _description_
+    """
     cpage.goto(config.TEST_URL)
     login_page.click_restore_wallet_button()
     restore_wallet_page.input_wallet_mnemonic(config.TEST_MNEMONIC)
@@ -143,6 +162,7 @@ def restore_wallet(
     restore_wallet_page.input_wallet_confirm_pwd(config.TEST_WALLET_PWD)
     restore_wallet_page.input_wallet_pwd_hint(config.TEST_WALLET_PWD)
     restore_wallet_page.click_user_agreement_checkbox()
+    restore_wallet_page.click_restore_wallet_submit_button()
 
 
 @pytest.fixture
@@ -152,7 +172,14 @@ def create_wallet(
     create_wallet_page: CreateWalletPage,
     backup_or_not_wallet_page: BackupOrNotWalletPage,
 ):
-    """创建钱包"""
+    """前置，创建钱包
+
+    Args:
+        cpage (PlayWright): _description_
+        login_page (LoginPage): _description_
+        create_wallet_page (CreateWalletPage): _description_
+        backup_or_not_wallet_page (BackupOrNotWalletPage): _description_
+    """
     cpage.goto(config.TEST_URL)
     login_page.click_create_wallet_button()
     create_wallet_page.input_wallet_name(config.TEST_WALLET_NAME)
