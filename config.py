@@ -1,6 +1,6 @@
 """公共配置"""
 import os
-from pydantic_settings import BaseSettings
+from pydantic import BaseSettings
 
 
 class BaseConfig(BaseSettings):

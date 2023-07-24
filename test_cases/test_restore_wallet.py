@@ -2,6 +2,7 @@ import os
 import allure
 import pytest
 from playwright.sync_api import Page, expect
+from utils._playwright import PlayWright
 from utils.load_file import LoadFile
 from config import config
 from page.login.login_page import LoginPage
@@ -13,7 +14,6 @@ from page.restore_wallet.restore_wallet_page import RestoreWalletPage
 class TestRestoreWallet:
     """恢复钱包测试用例集"""
 
-    @pytest.mark.skip
     @pytest.mark.restore_wallet
     @pytest.mark.parametrize(
         "data",
@@ -22,13 +22,14 @@ class TestRestoreWallet:
     def test_restore_wallet_case(
         self,
         data,
-        page: Page,
+        # page: Page,
+        cpage: PlayWright,
         login_page: LoginPage,
         restore_wallet_page: RestoreWalletPage,
     ):
         """恢复钱包测试用例"""
         allure.dynamic.title(data["title"])
-        page.goto(config.TEST_URL)
+        cpage.goto(config.TEST_URL)
         login_page.click_restore_wallet_button()
         restore_wallet_page.input_wallet_mnemonic(data["data"]["wallet_mnemonic"])
         restore_wallet_page.input_wallet_name(data["data"]["wallet_name"])

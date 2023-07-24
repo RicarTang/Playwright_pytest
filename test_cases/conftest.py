@@ -130,12 +130,12 @@ def home_page(page: Page) -> Generator[HomePage, None, None]:
 
 @pytest.fixture
 def restore_wallet(
-    page: Page,
+    cpage: PlayWright,
     login_page: LoginPage,
     restore_wallet_page: RestoreWalletPage,
 ):
     """恢复钱包"""
-    page.goto(config.TEST_URL)
+    cpage.goto(config.TEST_URL)
     login_page.click_restore_wallet_button()
     restore_wallet_page.input_wallet_mnemonic(config.TEST_MNEMONIC)
     restore_wallet_page.input_wallet_name(config.TEST_WALLET_NAME)
@@ -147,13 +147,13 @@ def restore_wallet(
 
 @pytest.fixture
 def create_wallet(
-    page: Page,
+    cpage: PlayWright,
     login_page: LoginPage,
     create_wallet_page: CreateWalletPage,
     backup_or_not_wallet_page: BackupOrNotWalletPage,
 ):
     """创建钱包"""
-    page.goto(config.TEST_URL)
+    cpage.goto(config.TEST_URL)
     login_page.click_create_wallet_button()
     create_wallet_page.input_wallet_name(config.TEST_WALLET_NAME)
     create_wallet_page.input_wallet_pwd(config.TEST_WALLET_PWD)

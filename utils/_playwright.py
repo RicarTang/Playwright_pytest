@@ -5,6 +5,11 @@ from playwright.sync_api import Page
 
 
 class PlayWright(Page):
+    """对playwright实现二次封装
+
+    Args:
+        Page (_type_): _description_
+    """
     def __init__(self, page: Page) -> None:
         self.page = page
 

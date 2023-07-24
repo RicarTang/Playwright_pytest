@@ -4,6 +4,11 @@ import allure
 from page.common_page import CommonPageMixin
 
 class RestoreWalletPage(CommonPageMixin):
+    """恢复钱包页面模型
+
+    Args:
+        CommonPageMixin (_type_): 公共元素类
+    """
     def __init__(self, page: Page) -> None:
         super().__init__(page)
         # 助记词textarea

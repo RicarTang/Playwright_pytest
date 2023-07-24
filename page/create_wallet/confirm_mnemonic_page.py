@@ -4,6 +4,11 @@ import allure
 from page.common_page import CommonPageMixin
 
 class ConfirmMnemonicPage(CommonPageMixin):
+    """确认助记词页页面模型
+
+    Args:
+        CommonPageMixin (_type_): 公共元素类
+    """
     def __init__(self, page: Page) -> None:
         super().__init__(page)
         # 确认自动补全助记词button（测试环境）

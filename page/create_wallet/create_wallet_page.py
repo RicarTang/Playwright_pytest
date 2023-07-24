@@ -4,6 +4,11 @@ import allure
 from page.common_page import CommonPageMixin
 
 class CreateWalletPage(CommonPageMixin):
+    """创建钱包页页面模型
+
+    Args:
+        CommonPageMixin (_type_): 公共元素类
+    """
     def __init__(self,page: Page):
         super().__init__(page)
         # 钱包名称input

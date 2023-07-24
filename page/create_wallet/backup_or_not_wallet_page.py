@@ -4,6 +4,11 @@ import allure
 from page.common_page import CommonPageMixin
 
 class BackupOrNotWalletPage(CommonPageMixin):
+    """是否备份钱包页页面模型
+
+    Args:
+        CommonPageMixin (_type_): 公共元素类
+    """
     def __init__(self, page: Page) -> None:
         super().__init__(page)
         # 立即备份助记词button

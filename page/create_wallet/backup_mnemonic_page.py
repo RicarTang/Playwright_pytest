@@ -4,6 +4,11 @@ import allure
 from page.common_page import CommonPageMixin
 
 class BackupMnemonicPage(CommonPageMixin):
+    """备份助记词页面模型
+
+    Args:
+        CommonPageMixin (_type_): 公共元素类
+    """
     def __init__(self, page: Page) -> None:
         super().__init__(page)
         # 复制助记词button
