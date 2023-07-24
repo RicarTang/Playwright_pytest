@@ -1,13 +1,13 @@
 """是否备份钱包页页面模型"""
 from playwright.sync_api import Page
 import allure
-from page.common_page import CommonPageMixin
+from page.common_page import GoBackMixin
 
-class BackupOrNotWalletPage(CommonPageMixin):
+class BackupOrNotWalletPage(GoBackMixin):
     """是否备份钱包页页面模型
 
     Args:
-        CommonPageMixin (_type_): 公共元素类
+        GoBackMixin (_type_): 返回元素Mixin
     """
     def __init__(self, page: Page) -> None:
         super().__init__(page)

@@ -1,18 +1,19 @@
 """转账页面模型"""
 from playwright.sync_api import Page
 import allure
-from page.common_page import CommonPageMixin
+from page.common_page import GoBackMixin,TransferInfoMixin
 
 
-class TransferPage(CommonPageMixin):
+class TransferPage(TransferInfoMixin,GoBackMixin):
     """转账页面模型
 
     Args:
-        CommonPageMixin (_type_): _description_
+        GoBackMixin (_type_): _description_
     """
 
     def __init__(self, page: Page) -> None:
-        super().__init__(page)
+        TransferInfoMixin.__init__(self,page)
+        GoBackMixin.__init__(self,page)
         # 收款地址input
         self.receive_address_input = page.locator(
             "//input[@placeholder='请输入 Pay Meta Chain地址']"
@@ -20,7 +21,8 @@ class TransferPage(CommonPageMixin):
         # 选择资产button
         self.select_asset_button = page.locator("//button[@mode='text']")
         # 转账金额input
-        self.transfer_amount_input = page.locator("//input[@placeholder='输入数量']")
+        # self.transfer_amount_input = page.locator("//input[@placeholder='输入数量']")
+        self.transfer_amount_input = page.get_by_role("group", name="转账金额").get_by_placeholder("输入数量")  # 同样出现两个元素
         # 全部button
         self.all_button = page.locator("//button[@mode='text' and text()='全部']")
         # 附言input
@@ -67,7 +69,7 @@ class TransferPage(CommonPageMixin):
         Args:
             address (str): _description_
         """
-        self.receive_address_input.fill(str(amount))
+        self.transfer_amount_input.fill(str(amount))
 
     @allure.step("输入转账附言")
     def input_transfer_memo(self, memo: str):

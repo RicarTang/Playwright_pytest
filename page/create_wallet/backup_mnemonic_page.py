@@ -1,13 +1,13 @@
 """备份助记词页页面模型"""
 from playwright.sync_api import Page
 import allure
-from page.common_page import CommonPageMixin
+from page.common_page import GoBackMixin
 
-class BackupMnemonicPage(CommonPageMixin):
+class BackupMnemonicPage(GoBackMixin):
     """备份助记词页面模型
 
     Args:
-        CommonPageMixin (_type_): 公共元素类
+        GoBackMixin (_type_): 返回元素Mixin
     """
     def __init__(self, page: Page) -> None:
         super().__init__(page)
