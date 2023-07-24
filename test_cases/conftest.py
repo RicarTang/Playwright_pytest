@@ -1,7 +1,7 @@
 from typing import Generator
 import pytest
 from playwright.sync_api import Page, expect
-import config
+from config import config
 from utils._playwright import PlayWright
 from page.login.login_page import LoginPage
 from page.create_wallet import (

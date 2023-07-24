@@ -3,7 +3,7 @@ import pytest
 import allure
 from playwright.sync_api import Page, expect
 from utils._playwright import PlayWright
-import config
+from config import config
 from utils.load_file import LoadFile
 from page.login.login_page import LoginPage
 from page.create_wallet import (

@@ -1,7 +1,7 @@
 """测试入口文件"""
 import os
 import pytest
-import config
+from config import config
 
 
 
