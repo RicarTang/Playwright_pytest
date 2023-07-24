@@ -4,7 +4,7 @@ import allure
 
 
 class GoBackMixin:
-    """返回按钮Mixin"""
+    """全局返回按钮Mixin"""
 
     def __init__(self, page: Page) -> None:
         # 返回按钮
@@ -17,7 +17,7 @@ class GoBackMixin:
 
 
 class TransferInfoMixin:
-    """签名面板/密码面板Mixin"""
+    """签名面板/密码面板组件元素Mixin"""
 
     def __init__(self, page: Page) -> None:
         # 转账信息面板确认按钮
