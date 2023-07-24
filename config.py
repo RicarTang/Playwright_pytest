@@ -19,3 +19,10 @@ LOG_FORMATTER = "%(levelname)s:     %(asctime)s - %(filename)s - %(funcName)s - 
 # data数据文件目录
 # 测试用例数据
 TESTCASE_DATA_PATH = os.path.join(ROOT_PATH,'data','test_data')
+# fixture生成钱包
+# 测试助记词
+TEST_MNEMONIC = "front cushion afford loud hungry upset rich table delay steel margin lucky"
+# 钱包名称
+TEST_WALLET_NAME = "钱包"
+# 钱包密码
+TEST_WALLET_PWD = "12345678"

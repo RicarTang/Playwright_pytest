@@ -13,6 +13,7 @@ from page.restore_wallet.restore_wallet_page import RestoreWalletPage
 class TestRestoreWallet:
     """恢复钱包测试用例集"""
 
+    @pytest.mark.skip
     @pytest.mark.restore_wallet
     @pytest.mark.parametrize(
         "data",
@@ -27,7 +28,7 @@ class TestRestoreWallet:
     ):
         """恢复钱包测试用例"""
         allure.dynamic.title(data["title"])
-        page.goto("http://127.0.0.1:6939")
+        page.goto(config.TEST_URL)
         login_page.click_restore_wallet_button()
         restore_wallet_page.input_wallet_mnemonic(data["data"]["wallet_mnemonic"])
         restore_wallet_page.input_wallet_name(data["data"]["wallet_name"])

@@ -2,6 +2,7 @@ import os
 import pytest
 import allure
 from playwright.sync_api import Page, expect
+from utils._playwright import PlayWright
 import config
 from utils.load_file import LoadFile
 from page.login.login_page import LoginPage
@@ -27,7 +28,8 @@ class TestCreateWallet:
     def test_create_wallet_case(
         self,
         data: dict,
-        page: Page,
+        # page: Page,
+        cpage: PlayWright,
         login_page: LoginPage,
         create_wallet_page: CreateWalletPage,
         backup_or_not_wallet_page: BackupOrNotWalletPage,
@@ -37,7 +39,8 @@ class TestCreateWallet:
     ):
         """创建钱包测试用例"""
         allure.dynamic.title(data["title"])
-        page.goto("http://127.0.0.1:6939")
+        # page.goto(config.TEST_URL)
+        cpage.goto(config.TEST_URL)
         login_page.click_create_wallet_button()
         create_wallet_page.input_wallet_name(data["data"]["wallet_name"])
         create_wallet_page.input_wallet_pwd(data["data"]["wallet_pwd"])
