@@ -17,7 +17,7 @@ class TransferPage(TransferInfoMixin,GoBackMixin):
         GoBackMixin.__init__(self,page)
         # 收款地址input
         self.receive_address_input = page.locator(
-            "//input[@placeholder='请输入 Pay Meta Chain地址']"
+            "//input[@formcontrolname='address']"
         )
         # 选择资产button
         self.select_asset_button = page.locator("//button[@class='bg-env mt-1.5 flex h-10 w-full items-center justify-between rounded-lg p-3']")

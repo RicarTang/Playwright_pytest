@@ -96,3 +96,98 @@ class TestTransferPMC:
         transfer_page.click_confirm_pwd_submit_button()
         expect(asset_detail_list_page.page_h1_title).to_be_visible()
 
+
+@allure.epic("转账")
+@allure.feature("转账BFMT")
+class TestTransferBFMT:
+    """转账BFMT测试"""
+
+    @pytest.mark.transfer_bfmt
+    @pytest.mark.transfer_assets
+    @pytest.mark.parametrize(
+        "data",
+        LoadFile(
+            os.path.join(config.TESTCASE_DATA_PATH, "bfmt", "transfer_bfmt_data.yaml")
+        ),
+    )
+    def test_transfer_bfmt_case(
+        self,
+        data: dict,
+        restore_wallet,
+        home_page: HomePage,
+        transfer_page: TransferPage,
+        asset_detail_list_page: AssetDetailListPage,
+    ):
+        """成功转账bfmt测试
+
+        Args:
+            data (dict): _description_
+            restore_wallet (_type_): _description_
+            home_page (HomePage): _description_
+            transfer_page (TransferPage): _description_
+            asset_detail_list_page (AssetDetailListPage): _description_
+        """
+        allure.dynamic.title(data["title"])
+        home_page.click_recharge_invite_dialog_close_button()
+        # 切换bfmt钱包
+        home_page.click_wallet_menu_button()
+        home_page.click_bfmt_wallet_li()
+        home_page.click_transfer_button()
+        transfer_page.input_receive_address(data["data"]["receive_address"])
+        transfer_page.input_transfer_amount(data["data"]["amount"])
+        transfer_page.input_transfer_memo(data["data"]["memo"])
+        expect(transfer_page.submit_transfer_button).to_be_enabled()
+        transfer_page.click_submit_transfer_button()
+        transfer_page.click_transfer_info_confirm_button()
+        transfer_page.input_transfer_wallet_pwd(data["data"]["transfer_wallet_pwd"])
+        transfer_page.click_confirm_pwd_submit_button()
+        expect(asset_detail_list_page.page_h1_title).to_be_visible()
+
+
+@allure.epic("转账")
+@allure.feature("转账BFT")
+class TestTransferBft:
+    """转账BFT测试"""
+
+    @pytest.mark.transfer_bft
+    @pytest.mark.transfer_assets
+    @pytest.mark.parametrize(
+        "data",
+        LoadFile(
+            os.path.join(config.TESTCASE_DATA_PATH, "bft", "transfer_bft_data.yaml")
+        ),
+    )
+    def test_transfer_bft_case(
+        self,
+        data: dict,
+        restore_wallet,
+        home_page: HomePage,
+        transfer_page: TransferPage,
+        asset_detail_list_page: AssetDetailListPage,
+    ):
+        """成功转账bft测试
+
+        Args:
+            data (dict): _description_
+            restore_wallet (_type_): _description_
+            home_page (HomePage): _description_
+            transfer_page (TransferPage): _description_
+        """
+        allure.dynamic.title(data["title"])
+        home_page.click_recharge_invite_dialog_close_button()
+        # 切换bft钱包
+        home_page.click_wallet_menu_button()
+        home_page.click_bft_wallet_li()
+        home_page.click_transfer_button()
+        transfer_page.input_receive_address(data["data"]["receive_address"])
+        transfer_page.input_transfer_amount(data["data"]["amount"])
+        transfer_page.input_transfer_memo(data["data"]["memo"])
+        expect(transfer_page.submit_transfer_button).to_be_enabled()
+        transfer_page.click_submit_transfer_button()
+        transfer_page.click_transfer_info_confirm_button()
+        # 有二次密码的情况
+        transfer_page.input_transfer_wallet_second_pwd(data["data"]["transfer_wallet_second_pwd"])
+        transfer_page.click_transfer_info_second_next_button()
+        transfer_page.input_transfer_wallet_pwd(data["data"]["transfer_wallet_pwd"])
+        transfer_page.click_confirm_pwd_submit_button()
+        expect(asset_detail_list_page.page_h1_title).to_be_visible()

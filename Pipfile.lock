@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2e67d9718406dff392d803217f393f89cea787d0f5527dd7fde1f18d3c5245c1"
+            "sha256": "2980842ebca32f960ae6197a8bca97433ced56aa0a4cd0acb48d456a95ead478"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -144,6 +144,14 @@
             ],
             "markers": "python_version < '3.11'",
             "version": "==1.1.2"
+        },
+        "execnet": {
+            "hashes": [
+                "sha256:88256416ae766bc9e8895c76a87928c0012183da3cc4fc18016e6f050e025f41",
+                "sha256:cc59bc4423742fd71ad227122eb0dd44db51efb3dc4095b45ac9a08c770096af"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==2.0.2"
         },
         "greenlet": {
             "hashes": [
@@ -328,6 +336,22 @@
             ],
             "index": "pip_conf_index_global",
             "version": "==0.3.3"
+        },
+        "pytest-rerunfailures": {
+            "hashes": [
+                "sha256:784f462fa87fe9bdf781d0027d856b47a4bfe6c12af108f6bd887057a917b48e",
+                "sha256:9a1afd04e21b8177faf08a9bbbf44de7a0fe3fc29f8ddbe83b9684bd5f8f92a9"
+            ],
+            "index": "pip_conf_index_global",
+            "version": "==12.0"
+        },
+        "pytest-xdist": {
+            "hashes": [
+                "sha256:d5ee0520eb1b7bcca50a60a518ab7a7707992812c578198f8b44fdfac78e8c93",
+                "sha256:ff9daa7793569e6a68544850fd3927cd257cc03a7ef76c95e86915355e82b5f2"
+            ],
+            "index": "pip_conf_index_global",
+            "version": "==3.3.1"
         },
         "python-slugify": {
             "hashes": [

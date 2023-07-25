@@ -2,18 +2,18 @@
   title: 钱包名称为空创建钱包
   data:
     wallet_name: ""
-    wallet_pwd: 12345678
-    wallet_confirm_pwd: 12345678
-    wallet_pwd_hint: 12345678
+    wallet_pwd: "12345678"
+    wallet_confirm_pwd: "12345678"
+    wallet_pwd_hint: "12345678"
   expect: 
     is_enabled: False
 -
   title: 钱包名称为13个字符创建钱包
   data:
     wallet_name: tangtangtangt
-    wallet_pwd: 12345678
-    wallet_confirm_pwd: 12345678
-    wallet_pwd_hint: 12345678
+    wallet_pwd: "12345678"
+    wallet_confirm_pwd: "12345678"
+    wallet_pwd_hint: "12345678"
   expect: 
     is_enabled: False
 -
@@ -21,26 +21,26 @@
   data:
     wallet_name: tang
     wallet_pwd: ""
-    wallet_confirm_pwd: 12345678
-    wallet_pwd_hint: 12345678
+    wallet_confirm_pwd: "12345678"
+    wallet_pwd_hint: "12345678"
   expect: 
     is_enabled: False
 -
   title: 钱包确认密码为空创建钱包
   data:
     wallet_name: tang
-    wallet_pwd: 12345678
+    wallet_pwd: "12345678"
     wallet_confirm_pwd: ""
-    wallet_pwd_hint: 12345678
+    wallet_pwd_hint: "12345678"
   expect: 
     is_enabled: False
 -
   title: 钱包密码为7位字符创建钱包
   data:
     wallet_name: tang
-    wallet_pwd: 1234567
-    wallet_confirm_pwd: 1234567
-    wallet_pwd_hint: 1234567
+    wallet_pwd: "1234567"
+    wallet_confirm_pwd: "1234567"
+    wallet_pwd_hint: "1234567"
   expect: 
     is_enabled: False
 -
@@ -65,17 +65,17 @@
   title: 成功创建钱包,备份钱包
   data:
     wallet_name: tang
-    wallet_pwd: 12345678
-    wallet_confirm_pwd: 12345678
-    wallet_pwd_hint: 12345678
+    wallet_pwd: "12345678"
+    wallet_confirm_pwd: "12345678"
+    wallet_pwd_hint: "12345678"
   expect: 
     is_enabled: True
 -
   title: 成功创建钱包,跳过备份
   data:
     wallet_name: tang
-    wallet_pwd: 12345678
-    wallet_confirm_pwd: 12345678
-    wallet_pwd_hint: 12345678
+    wallet_pwd: "12345678"
+    wallet_confirm_pwd: "12345678"
+    wallet_pwd_hint: "12345678"
   expect: 
     is_enabled: True

@@ -8,6 +8,8 @@ pytest-playwright = "*"
 allure-pytest = "*"
 pyyaml = "*"
 pydantic = "==1.10.11"
+pytest-rerunfailures = "*"
+pytest-xdist = "*"
 
 [dev-packages]
 black = "*"
