@@ -1,5 +1,6 @@
 from typing import Generator
 import pytest
+import allure
 from playwright.sync_api import Page, expect
 from config import config
 from utils._playwright import PlayWright
@@ -69,8 +70,9 @@ def create_wallet(
     # 断言首页元素可见
     expect(home_page.recharge_invite_dialog_close_button).to_be_visible()
 
+
 @pytest.fixture
-def cpage(page:Page) -> PlayWright:
+def cpage(page: Page) -> PlayWright:
     """返回封装后的playwright对象
 
     Returns:
@@ -182,6 +184,7 @@ def home_page(page: Page) -> Generator[HomePage, None, None]:
     home_page = HomePage(page)
     yield home_page
 
+
 @pytest.fixture
 def transfer_page(page: Page) -> Generator[TransferPage, None, None]:
     """转账页面模型实例
@@ -195,6 +198,7 @@ def transfer_page(page: Page) -> Generator[TransferPage, None, None]:
     transfer_page = TransferPage(page)
     yield transfer_page
 
+
 @pytest.fixture
 def asset_detail_list_page(page: Page) -> Generator[AssetDetailListPage, None, None]:
     """资产详情列表页面
@@ -207,6 +211,7 @@ def asset_detail_list_page(page: Page) -> Generator[AssetDetailListPage, None, N
     """
     asset_detail_list_page = AssetDetailListPage(page)
     yield asset_detail_list_page
+
 
 @pytest.fixture
 def select_asset_page(page: Page) -> Generator[SelectAssetPage, None, None]:
