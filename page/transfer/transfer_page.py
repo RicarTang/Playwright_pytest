@@ -1,4 +1,5 @@
 """转账页面模型"""
+from pydantic import validate_arguments,StrictInt,StrictStr
 from playwright.sync_api import Page
 import allure
 from page.common_page import GoBackMixin,TransferInfoMixin
@@ -19,7 +20,7 @@ class TransferPage(TransferInfoMixin,GoBackMixin):
             "//input[@placeholder='请输入 Pay Meta Chain地址']"
         )
         # 选择资产button
-        self.select_asset_button = page.locator("//button[@mode='text']")
+        self.select_asset_button = page.locator("//button[@class='bg-env mt-1.5 flex h-10 w-full items-center justify-between rounded-lg p-3']")
         # 转账金额input
         # self.transfer_amount_input = page.locator("//input[@placeholder='输入数量']")
         self.transfer_amount_input = page.get_by_role("group", name="转账金额").get_by_placeholder("输入数量")  # 同样出现两个元素
@@ -49,11 +50,12 @@ class TransferPage(TransferInfoMixin,GoBackMixin):
         ).first  # 莫名其妙定位出两个submit按钮，好像还是同一个，使用first解决严格模式检查
 
     @allure.step("输入收款地址")
-    def input_receive_address(self, address: str):
+    @validate_arguments
+    def input_receive_address(self, address: StrictStr):
         """输入收款地址
 
         Args:
-            address (str): _description_
+            address (StrictStr): _description_
         """
         self.receive_address_input.fill(address)
 
@@ -63,20 +65,22 @@ class TransferPage(TransferInfoMixin,GoBackMixin):
         self.select_asset_button.click()
 
     @allure.step("输入转账金额")
-    def input_transfer_amount(self, amount: str | int):
+    @validate_arguments
+    def input_transfer_amount(self, amount: StrictStr):
         """输入收款地址
 
         Args:
-            address (str): _description_
+            address (StrictStr): _description_
         """
-        self.transfer_amount_input.fill(str(amount))
+        self.transfer_amount_input.fill(amount)
 
     @allure.step("输入转账附言")
-    def input_transfer_memo(self, memo: str):
+    @validate_arguments
+    def input_transfer_memo(self, memo: StrictStr):
         """输入收款地址
 
         Args:
-            address (str): _description_
+            address (StrictStr): _description_
         """
         self.memo_input.fill(memo)
 
@@ -86,14 +90,15 @@ class TransferPage(TransferInfoMixin,GoBackMixin):
         self.select_miner_fee_button.click()
 
     @allure.step("输入修改的矿工费")
-    def input_modify_miner_fee(self, fee: str | int):
+    @validate_arguments
+    def input_modify_miner_fee(self, fee: StrictStr):
         """输入修改的矿工费
 
         Args:
-            fee (str | int): _description_
+            fee (StrictStr): _description_
         """
         self.modify_miner_fee_input.clear()
-        self.modify_miner_fee_input.fill(str(fee))
+        self.modify_miner_fee_input.fill(fee)
 
     @allure.step("点击确定修改矿工费按钮")
     def click_miner_fee_confirm_button(self):

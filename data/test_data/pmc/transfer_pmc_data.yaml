@@ -2,8 +2,6 @@
   title: 成功转账pmc
   data:
     receive_address: cBgdRYoM3WN991vDix9TQCBQumX28DWfuA
-    amount: 0.01
+    amount: "0.00000001"
     memo: 转账PMC成功用例
-    transfer_wallet_pwd: 12345678
-  expect: 
-    is_enabled: False
+    transfer_wallet_pwd: "12345678"

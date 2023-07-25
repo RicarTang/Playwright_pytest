@@ -17,7 +17,13 @@ class TestRestoreWallet:
     @pytest.mark.restore_wallet
     @pytest.mark.parametrize(
         "data",
-        LoadFile(os.path.join(config.TESTCASE_DATA_PATH, "restore_wallet_data.yaml")),
+        LoadFile(
+            os.path.join(
+                config.TESTCASE_DATA_PATH,
+                "create_restore_wallet",
+                "restore_wallet_data.yaml",
+            )
+        ),
     )
     def test_restore_wallet_case(
         self,

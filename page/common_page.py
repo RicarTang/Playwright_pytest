@@ -1,4 +1,5 @@
 """公共元素页面"""
+from pydantic import validate_arguments,StrictInt,StrictStr
 from playwright.sync_api import Page
 import allure
 
@@ -51,13 +52,14 @@ class TransferInfoMixin:
         self.transfer_info_confirm_button.click()
 
     @allure.step("密码面板输入钱包密码")
-    def input_transfer_wallet_pwd(self, pwd: str | int):
+    @validate_arguments
+    def input_transfer_wallet_pwd(self, pwd: StrictStr):
         """密码面板输入钱包密码
 
         Args:
-            pwd (str | int): _description_
+            pwd (StrictStr): _description_
         """
-        self.transfer_info_pwd_input.fill(str(pwd))
+        self.transfer_info_pwd_input.fill(pwd)
 
     @allure.step("点击密码面板确定按钮")
     def click_confirm_pwd_submit_button(self):

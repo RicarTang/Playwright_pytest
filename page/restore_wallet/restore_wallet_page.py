@@ -1,4 +1,5 @@
 """恢复钱包页面模型"""
+from pydantic import validate_arguments,StrictStr
 from playwright.sync_api import Page
 import allure
 from page.common_page import GoBackMixin
@@ -29,29 +30,54 @@ class RestoreWalletPage(GoBackMixin):
         self.restore_wallet_submit_button = page.locator("//button[@type='submit']")
 
     @allure.step("输入助记词")
-    def input_wallet_mnemonic(self,mnemonic:str):
-        """输入助记词"""
-        self.mnemonic_textarea.fill(str(mnemonic))
+    @validate_arguments
+    def input_wallet_mnemonic(self,mnemonic:StrictStr):
+        """输入助记词
+
+        Args:
+            mnemonic (StrictStr): 强类型，字符串
+        """
+        self.mnemonic_textarea.fill(mnemonic)
 
     @allure.step("输入钱包名称")
-    def input_wallet_name(self,wallet_name:str):
-        """输入钱包名称"""
-        self.wallet_name_input.fill(str(wallet_name))
+    @validate_arguments
+    def input_wallet_name(self,wallet_name:StrictStr):
+        """输入钱包名称
+
+        Args:
+            wallet_name (StrictStr): _description_
+        """
+        self.wallet_name_input.fill(wallet_name)
 
     @allure.step("输入钱包密码")
-    def input_wallet_pwd(self,wallet_pwd:str):
-        """输入钱包密码"""
-        self.wallet_pwd_input.fill(str(wallet_pwd))
+    @validate_arguments
+    def input_wallet_pwd(self,wallet_pwd:StrictStr):
+        """输入钱包密码
+
+        Args:
+            wallet_pwd (StrictStr): _description_
+        """
+        self.wallet_pwd_input.fill(wallet_pwd)
 
     @allure.step("输入钱包确认密码")
-    def input_wallet_confirm_pwd(self,wallet_pwd:str):
-        """输入确认钱包密码"""
-        self.wallet_confirm_pwd_input.fill(str(wallet_pwd))
+    @validate_arguments
+    def input_wallet_confirm_pwd(self,wallet_pwd:StrictStr):
+        """输入确认钱包密码
+
+        Args:
+            wallet_pwd (StrictStr): _description_
+        """
+        self.wallet_confirm_pwd_input.fill(wallet_pwd)
 
     @allure.step("输入钱包密码提示")
-    def input_wallet_pwd_hint(self,wallet_pwd_hint:str):
-        """输入钱包密码提示"""
-        self.wallet_pwd_hint_input.fill(str(wallet_pwd_hint))
+    @validate_arguments
+    def input_wallet_pwd_hint(self,wallet_pwd_hint:StrictStr):
+        """输入钱包密码提示
+
+        Args:
+            wallet_pwd_hint (StrictStr): _description_
+        """
+        self.wallet_pwd_hint_input.fill(wallet_pwd_hint)
     
     @allure.step("点击勾选用户协议")
     def click_user_agreement_checkbox(self):

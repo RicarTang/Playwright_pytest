@@ -1,0 +1,15 @@
+-
+  title: 成功转账USDM
+  data:
+    receive_address: cBgdRYoM3WN991vDix9TQCBQumX28DWfuA
+    amount: 0.00000001
+    memo: 转账PMC成功用例
+    transfer_wallet_pwd: "12345678"
+
+# -
+#   title: 成功转账USDM
+#   data:
+#     receive_address: cBgdRYoM3WN991vDix9TQCBQumX28DWfuA
+#     amount: 0.01
+#     memo: 转账PMC成功用例
+#     transfer_wallet_pwd: 12345678
