@@ -95,3 +95,56 @@ class TransferInfoMixin:
     def click_confirm_pwd_submit_button(self):
         """点击密码面板确定按钮"""
         self.confirm_pwd_submit_button.click()
+
+class SelectWalletPanelMixin:
+    """选择钱包面板Mixin"""
+    def __init__(self,page: Page) -> None:
+        # 选择钱包面板
+        self.__select_wallet_panel = page.locator("//mb-select-wallet-component")
+        # 选择钱包面板h1标题
+        self.select_wallet_panel_h1_title = self.__select_wallet_panel.get_by_role("heading",name="选择钱包")
+        # 关闭选择钱包面板按钮
+        self.select_wallet_panel_close_button = self.__select_wallet_panel.locator("//header//button")
+        # 面板ETH身份钱包
+        self.select_wallet_panel_eth = self.__select_wallet_panel.locator("//section//div/label[text()='ETH']")
+        # 面板BSC身份钱包
+        self.select_wallet_panel_bsc = self.__select_wallet_panel.locator("//section//div/label[text()='BSC']")
+        # 面板TRX身份钱包
+        self.select_wallet_panel_trx = self.__select_wallet_panel.locator("//section//div/label[text()='TRX']")
+
+    @allure.step("点击关闭选择钱包面板按钮")
+    def click_select_wallet_panel_close_button(self):
+        """点击关闭选择钱包面板按钮"""
+        self.select_wallet_panel_close_button.click()
+
+    @allure.step("点击选择面板ETH身份钱包")
+    def click_select_wallet_panel_eth(self):
+        """点击选择面板ETH身份钱包"""
+        self.select_wallet_panel_eth.click()
+
+    @allure.step("点击选择面板BSC身份钱包")
+    def click_select_wallet_panel_bsc(self):
+        """点击选择面板BSC身份钱包"""
+        self.select_wallet_panel_bsc.click()
+
+    @allure.step("点击选择面板TRX身份钱包")
+    def click_select_wallet_panel_trx(self):
+        """点击选择面板TRX身份钱包"""
+        self.select_wallet_panel_trx.click()
+
+
+class SelectTokenPanelMixin:
+    """选择币种面板Mixin"""
+    def __init__(self,page: Page) -> None:
+        # 选择币种面板
+        self.__select_token_panel = page.locator("//mb-select-token-component")
+        # 选择币种面板h1标题
+        self.select_token_panel_h1_title = self.__select_token_panel.get_by_role("heading",name="选择币种")
+        # 选择币种面板关闭按钮
+        self.select_token_panel_close_button = self.__select_token_panel.locator("//header//button")
+        # 
+
+    @allure.step("点击选择钱包面板关闭按钮")
+    def click_select_token_panel_close_button(self):
+        """点击选择钱包面板关闭按钮"""
+        self.select_token_panel_close_button.click()

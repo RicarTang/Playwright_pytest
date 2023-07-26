@@ -1,0 +1,6 @@
+-
+  title: 成功转账trx
+  data:
+    receive_address: TRMQvZ8d9V5BKtPEjKjg7UP2x1pMqr8wQk
+    amount: "0.000001"
+    transfer_wallet_pwd: "12345678"

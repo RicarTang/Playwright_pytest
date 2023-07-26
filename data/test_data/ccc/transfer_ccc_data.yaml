@@ -4,6 +4,7 @@
     receive_address: cBgdRYoM3WN991vDix9TQCBQumX28DWfuA
     amount: "0.00000001"
     memo: 转账ccc成功用例
+    transfer_wallet_second_pwd: "1"
     transfer_wallet_pwd: "12345678"
 
 -
@@ -12,4 +13,5 @@
     receive_address: cBgdRYoM3WN991vDix9TQCBQumX28DWfuA
     amount: "0.00000001"
     memo: ""
+    transfer_wallet_second_pwd: "1"
     transfer_wallet_pwd: "12345678"
